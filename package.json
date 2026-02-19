@@ -1,0 +1,110 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "name": "pharma-sync",
+    "version": "1.0.0",
+    "description": "Sistema de gestión de farmacia - Inventario, ventas y reportes",
+    "author": "Pharma-Sync Team",
+    "private": true,
+    "main": "electron/main.js",
+    "homepage": "./",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "tauri:dev": "tauri dev",
+        "tauri:build": "tauri build",
+        "electron:dev": "concurrently \"php artisan serve --port=8000\" \"wait-on http://127.0.0.1:8000 && electron .\"",
+        "electron:build": "electron-builder --win --x64"
+    },
+    "dependencies": {
+        "electron-is-dev": "^3.0.1"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.18",
+        "@tailwindcss/vite": "^4.0.0",
+        "autoprefixer": "^10.4.23",
+        "axios": "^1.11.0",
+        "concurrently": "^9.2.1",
+        "electron": "^40.4.1",
+        "electron-builder": "^26.7.0",
+        "laravel-vite-plugin": "^2.0.0",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.18",
+        "vite": "^7.0.7",
+        "wait-on": "^8.0.5"
+    },
+    "build": {
+        "appId": "com.pharmasync.app",
+        "productName": "Pharma-Sync",
+        "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+        "directories": {
+            "buildResources": "electron/assets",
+            "output": "out"
+        },
+        "files": [
+            "dist/**/*",
+            "electron/**/*.js",
+            "app/**/*",
+            "bootstrap/**/*",
+            "config/**/*",
+            "database/**/*",
+            "public/**/*",
+            "resources/**/*",
+            "routes/**/*",
+            "storage/**/*",
+            "vendor/**/*",
+            "artisan",
+            "composer.json",
+            "composer.lock",
+            ".env.example",
+            "!node_modules",
+            "node_modules/electron-is-dev/**/*"
+        ],
+        "asarUnpack": [
+            "app/**/*",
+            "database/**/*",
+            "vendor/**/*",
+            "artisan"
+        ],
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "electron/icon.ico",
+            "artifactName": "${productName}-Setup-${version}.${ext}"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "allowElevation": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "Pharma-Sync",
+            "installerIcon": "electron/assets/icon.png",
+            "uninstallerIcon": "electron/assets/icon.png",
+            "installerHeaderIcon": "electron/assets/icon.png",
+            "deleteAppDataOnUninstall": false,
+            "perMachine": false
+        },
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "category": "public.app-category.business",
+            "icon": "electron/assets/icon.png"
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ],
+            "category": "Office",
+            "icon": "electron/assets/icon.png"
+        }
+    }
+}

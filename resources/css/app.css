@@ -1,0 +1,442 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ============================================
+   SISTEMA DE DISEÑO MODERNO - PHARMA-SYNC
+   ============================================ */
+
+@layer components {
+    
+    /* ============================================
+       COLORES Y GRADIENTES MODERNOS
+       ============================================ */
+    
+    .gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .gradient-success {
+        background: linear-gradient(135deg, #0cebeb 0%, #20e3b2 100%);
+    }
+    
+    .gradient-warning {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    
+    .gradient-info {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    
+    .gradient-dark {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+    
+    /* ============================================
+       BOTONES MODERNOS
+       ============================================ */
+    
+    .btn-modern {
+        @apply px-6 py-3 rounded-xl font-medium;
+        @apply shadow-lg hover:shadow-2xl;
+        @apply transform hover:-translate-y-1;
+        @apply transition-all duration-300;
+        @apply flex items-center gap-2 justify-center;
+    }
+    
+    .btn-primary {
+        @apply bg-gradient-to-r from-blue-600 to-blue-700;
+        @apply text-white;
+        @apply hover:from-blue-700 hover:to-blue-800;
+    }
+    
+    .btn-success {
+        @apply bg-gradient-to-r from-green-600 to-green-700;
+        @apply text-white;
+        @apply hover:from-green-700 hover:to-green-800;
+    }
+    
+    .btn-gradient {
+        @apply bg-gradient-to-r from-purple-500 via-pink-500 to-red-500;
+        @apply text-white;
+        @apply hover:scale-105;
+    }
+    
+    /* ============================================
+       INPUTS MODERNOS
+       ============================================ */
+    
+    .input-modern {
+        @apply w-full px-4 py-3 rounded-xl;
+        @apply border-2 border-slate-200 dark:border-slate-700;
+        @apply focus:border-blue-500 focus:ring-4 focus:ring-blue-100;
+        @apply transition-all duration-300;
+        @apply bg-white dark:bg-slate-800;
+        @apply text-slate-900 dark:text-white;
+    }
+    
+    .input-group {
+        @apply relative;
+    }
+    
+    .input-icon {
+        @apply absolute left-4 top-1/2 -translate-y-1/2;
+        @apply text-slate-400 dark:text-slate-500;
+    }
+    
+    .input-with-icon {
+        @apply pl-12;
+    }
+    
+    /* ============================================
+       CARDS MODERNOS
+       ============================================ */
+    
+    .card-modern {
+        @apply bg-white dark:bg-slate-800 rounded-2xl;
+        @apply shadow-lg hover:shadow-2xl;
+        @apply transform hover:-translate-y-1;
+        @apply transition-all duration-300;
+        @apply p-6 border border-slate-100 dark:border-slate-700;
+    }
+    
+    .card-gradient {
+        @apply rounded-2xl p-6;
+        @apply shadow-lg hover:shadow-2xl;
+        @apply transform hover:-translate-y-1;
+        @apply transition-all duration-300;
+    }
+    
+    .card-icon {
+        @apply w-14 h-14 rounded-xl;
+        @apply flex items-center justify-center;
+        @apply text-white text-2xl;
+        @apply shadow-lg;
+    }
+    
+    .card-value {
+        @apply text-4xl font-bold;
+        @apply bg-gradient-to-r from-blue-600 to-purple-600;
+        @apply bg-clip-text text-transparent;
+    }
+    
+    /* ============================================
+       SIDEBAR MODERNO
+       ============================================ */
+    
+    .sidebar-modern {
+        @apply bg-gradient-to-b from-slate-900 to-slate-800;
+        @apply shadow-2xl;
+    }
+    
+    .nav-item {
+        @apply flex items-center gap-3 px-4 py-3 mx-2 rounded-xl;
+        @apply text-slate-300 hover:text-white;
+        @apply hover:bg-white/10;
+        @apply transition-all duration-300;
+        @apply relative overflow-hidden;
+    }
+    
+    .nav-item.active {
+        @apply bg-gradient-to-r from-blue-600 to-purple-600;
+        @apply text-white shadow-lg;
+    }
+    
+    .nav-item::before {
+        content: '';
+        @apply absolute left-0 top-0 w-1 h-full;
+        @apply bg-gradient-to-b from-blue-400 to-purple-400;
+        @apply transform -translate-x-full;
+        @apply transition-transform duration-300;
+    }
+    
+    .nav-item.active::before {
+        @apply translate-x-0;
+    }
+    
+    /* ============================================
+       HEADER MODERNO
+       ============================================ */
+    
+    .header-modern {
+        @apply bg-white/80 dark:bg-slate-900/80;
+        @apply backdrop-blur-lg;
+        @apply border-b border-slate-200 dark:border-slate-700;
+        @apply shadow-lg;
+    }
+    
+    /* ============================================
+       TABLAS MODERNAS
+       ============================================ */
+    
+    .table-modern {
+        @apply w-full;
+    }
+    
+    .table-modern thead {
+        @apply bg-gradient-to-r from-slate-50 to-slate-100;
+        @apply dark:from-slate-800 dark:to-slate-700;
+    }
+    
+    .table-modern th {
+        @apply px-6 py-4 text-left text-sm font-semibold;
+        @apply text-slate-700 dark:text-slate-200;
+        @apply uppercase tracking-wider;
+    }
+    
+    .table-modern tbody tr {
+        @apply border-b border-slate-100 dark:border-slate-700;
+        @apply hover:bg-slate-50 dark:hover:bg-slate-800/50;
+        @apply transition-colors duration-200;
+    }
+    
+    .table-modern td {
+        @apply px-6 py-4 text-sm;
+    }
+    
+    /* ============================================
+       BADGES MODERNOS
+       ============================================ */
+    
+    .badge {
+        @apply inline-flex items-center gap-1 px-3 py-1 rounded-full;
+        @apply text-xs font-medium;
+    }
+    
+    .badge-success {
+        @apply bg-green-100 text-green-800;
+        @apply dark:bg-green-900/30 dark:text-green-400;
+    }
+    
+    .badge-warning {
+        @apply bg-yellow-100 text-yellow-800;
+        @apply dark:bg-yellow-900/30 dark:text-yellow-400;
+    }
+    
+    .badge-error {
+        @apply bg-red-100 text-red-800;
+        @apply dark:bg-red-900/30 dark:text-red-400;
+    }
+    
+    .badge-info {
+        @apply bg-blue-100 text-blue-800;
+        @apply dark:bg-blue-900/30 dark:text-blue-400;
+    }
+    
+    /* ============================================
+       ANIMACIONES
+       ============================================ */
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .fade-in {
+        animation: fadeIn 0.5s ease-out;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    .slide-in {
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+    
+    .pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pharmacyPulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    }
+    
+    .pharmacy-pulse {
+        animation: pharmacyPulse 2s ease-in-out infinite;
+    }
+    
+    /* Ripple Effect */
+    .ripple {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .ripple::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .ripple:active::after {
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* ============================================
+       MODO LIGHT (Predeterminado)
+       ============================================ */
+    
+    html:not(.dark) body,
+    html:not(.dark) {
+        @apply bg-slate-50;
+    }
+    
+    html:not(.dark) .bg-white {
+        @apply bg-white;
+    }
+    
+    html:not(.dark) header {
+        @apply bg-white/80 backdrop-blur-lg border-b border-slate-200;
+    }
+    
+    html:not(.dark) #sidebar {
+        @apply bg-white border-r border-slate-200;
+    }
+    
+    /* ============================================
+       MODO DARK
+       ============================================ */
+    
+    .dark {
+        @apply bg-slate-900;
+    }
+    
+    .dark .bg-white {
+        @apply bg-slate-800 border border-slate-700;
+    }
+    
+    .dark .bg-slate-50 {
+        @apply bg-slate-800/60;
+    }
+    
+    .dark .bg-slate-100 {
+        @apply bg-slate-800/80;
+    }
+    
+    .dark .text-slate-900 {
+        @apply text-slate-50;
+    }
+    
+    .dark .text-slate-800 {
+        @apply text-slate-200;
+    }
+    
+    .dark .text-slate-700 {
+        @apply text-slate-300;
+    }
+    
+    .dark .text-slate-600 {
+        @apply text-slate-400;
+    }
+    
+    .dark .border-slate-200 {
+        @apply border-slate-700;
+    }
+    
+    .dark .border-slate-300 {
+        @apply border-slate-600;
+    }
+    
+    /* ============================================
+       UTILIDADES
+       ============================================ */
+    
+    .logo-glow {
+        @apply shadow-lg;
+    }
+    
+    .card-glow {
+        @apply shadow-lg hover:shadow-2xl;
+    }
+    
+    /* Transiciones suaves globales */
+    * {
+        @apply transition-colors duration-200;
+    }
+    
+    button, a, input, select, textarea {
+        @apply transition-all duration-300;
+    }
+}
+
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA SIDEBAR
+   ============================================ */
+
+#sidebar {
+    width: 256px;
+    transition: width 0.3s ease-in-out;
+    top: 64px;
+    height: calc(100vh - 64px);
+}
+
+#sidebar.collapsed {
+    width: 80px;
+}
+
+#sidebar.collapsed .sidebar-text {
+    display: none;
+}
+
+#main-content {
+    margin-left: 256px;
+    transition: margin-left 0.3s ease-in-out;
+    padding-top: 0;
+}
+
+#main-content.expanded {
+    margin-left: 80px;
+}
+
+body {
+    padding-top: 64px;
+}
+
+/* Asegurar que el sidebar moderno se vea correctamente */
+.sidebar-modern {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+}
+
+.dark .sidebar-modern {
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+}
