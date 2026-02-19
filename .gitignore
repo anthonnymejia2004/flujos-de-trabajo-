@@ -1,47 +1,140 @@
-*.log
-.DS_Store
+# ============================================
+# ARCHIVOS DE ENTORNO Y CONFIGURACIÓN
+# ============================================
 .env
-.env.backup
-.env.production
+.env.*
+!.env.example
 .phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
+auth.json
+
+# ============================================
+# DEPENDENCIAS (NO NECESARIAS EN GITHUB)
+# ============================================
 /node_modules
+/vendor
+/bower_components
+
+# ============================================
+# ARCHIVOS COMPILADOS Y BUILD
+# ============================================
 /public/build
 /public/hot
 /public/storage
-/storage/*.key
-/storage/pail
-/vendor
-Homestead.json
-Homestead.yaml
-Thumbs.db
-
-# Electron
+/public/mix-manifest.json
 /dist
 /out
 /release
+/builds
+/dist-native
+/native
+
+# ============================================
+# ARCHIVOS DE CACHÉ Y TEMPORALES
+# ============================================
+*.log
+*.cache
+.phpunit.result.cache
+/.phpunit.cache
+/storage/*.key
+/storage/pail
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+
+# ============================================
+# BASE DE DATOS LOCAL
+# ============================================
+*.sqlite
+*.sqlite-journal
+/database/database.sqlite
+/database/*.sqlite
+
+# ============================================
+# ARCHIVOS DE SISTEMA OPERATIVO
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# ============================================
+# IDEs Y EDITORES
+# ============================================
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+*.sublime-project
+*.sublime-workspace
+.project
+.settings
+.classpath
+
+# ============================================
+# ELECTRON Y APLICACIONES DE ESCRITORIO
+# ============================================
 *.exe
 *.dmg
 *.AppImage
 *.deb
 *.rpm
-
-# Electron build artifacts
+*.msi
 /electron/assets/icon.png
 /electron/assets/icon.icns
 /electron/assets/icon.ico
 
-# NativePHP
-/native
-/builds
-/dist-native
-*.exe
-*.dmg
-*.AppImage
+# ============================================
+# TAURI
+# ============================================
+/src-tauri/target
+/src-tauri/WixTools
+
+# ============================================
+# ARCHIVOS DE CONFIGURACIÓN LOCAL
+# ============================================
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# ============================================
+# ARCHIVOS DE BACKUP Y TEMPORALES
+# ============================================
+*.bak
+*.tmp
+*.temp
+*.old
+*~
+.#*
+
+# ============================================
+# ARCHIVOS DE PRUEBA Y COBERTURA
+# ============================================
+/coverage
+/.nyc_output
+/phpunit.xml
+/phpunit.xml.dist
+
+# ============================================
+# ARCHIVOS GRANDES O INNECESARIOS
+# ============================================
+rustup-init.exe
+*.zip
+*.tar.gz
+*.rar
+
+# ============================================
+# KIRO (OPCIONAL - DESCOMENTAR SI NO QUIERES SUBIRLO)
+# ============================================
+# /.kiro
