@@ -10,8 +10,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    base: './', // ← CLAVE: Rutas relativas para Electron
     server: {
-        host: '0.0.0.0',
+        host: '127.0.0.1',
         port: 5173,
         strictPort: true,
         watch: {
@@ -21,11 +22,10 @@ export default defineConfig({
     build: {
         outDir: 'public/build',
         emptyOutDir: true,
-        manifest: 'manifest.json',
+        manifest: 'manifest.json', // ← Generar manifest.json en la raíz de build
         rollupOptions: {
-            input: {
-                app: 'resources/js/app.js',
-                css: 'resources/css/app.css',
+            output: {
+                manualChunks: undefined,
             },
         },
     },
